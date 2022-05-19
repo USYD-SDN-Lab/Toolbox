@@ -1,2 +1,2 @@
 # Toolbox
-Useful toolboxes for any projects
+Useful toolboxes for any project
