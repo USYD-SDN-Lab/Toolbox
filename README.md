@@ -1,5 +1,22 @@
 # Toolbox
 Useful toolboxes for any project
+* **In another local repositiory, add this module**
+```sh
+git submodule add git@github.com:USYD-Center-of-Telecom-and-IoT/Toolbox.git Modules/Toolbox
+```
+Now, you can see a folder `Modules` with `Toolbox` inside
+* **import this module**
+	* Matlab
+	```
+	addpath("Modules/Detect_BayesEst");
+	```
+	* Python
+	```
+	if '.' not in __name__ :
+		from Modules.Toolbox.[file name]  import [class name]
+	else:
+		from .Modules.Toolbox.[file name] import [class name]
+	```
 
 ## DFT
 This class generates DFT(IDFT) matrices.
