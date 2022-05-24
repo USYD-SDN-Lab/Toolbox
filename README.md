@@ -8,7 +8,7 @@ Now, you can see a folder `Modules` with `Toolbox` inside
 * **import this module**
 	* Matlab
 	```
-	addpath("Modules/Detect_BayesEst");
+	addpath("Modules/Toolbox");
 	```
 	* Python
 	```
