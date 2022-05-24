@@ -1,2 +1,12 @@
 # Toolbox
 Useful toolboxes for any project
+
+## DFT
+This class generates DFT(IDFT) matrices.
+* constructor<br>
+`@size`: the size of DFT(IDFT) matrices. <br>
+`@extra_dims`(only for **Python**): is a tuple recording the other dimensions except the last two, which should be `size by size`). If you give fractional numbers, they will be transformed into integers by numpy.
+* gen_dft_mat<br>
+generate the DFT matrix
+* gen_idft_mat<br>
+generate the IDFT matrix
