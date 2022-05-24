@@ -1,0 +1,1 @@
+hd = HardDetection([1, 2]);
