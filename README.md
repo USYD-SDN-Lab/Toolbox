@@ -4,7 +4,7 @@ Useful toolboxes for any project<br>
 **This project is under the GNU General Public License v3.0. If you include this repository, you will have to share your codes publicly.**
 * **In another local repositiory, add this module**
 ```sh
-git submodule add git@github.com:USYD-Center-of-Telecom-and-IoT/Toolbox.git Modules/Toolbox
+git submodule add git@github.com:USYD-SDN-Lab/Toolbox.git Modules/Toolbox
 ```
 Now, you can see a folder `Modules` with `Toolbox` inside
 * **import this module**
