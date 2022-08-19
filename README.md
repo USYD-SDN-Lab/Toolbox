@@ -1,7 +1,5 @@
-# Toolbox
-![GPLv3](https://www.gnu.org/graphics/gplv3-or-later-sm.png)<br>
-Useful toolboxes for any project<br>
-**This project is under the GNU General Public License v3.0. If you include this repository, you will have to share your codes publicly.**
+# Toolbox ![GPLv3](https://www.gnu.org/graphics/gplv3-or-later-sm.png)
+Useful toolboxes for any project. **This project is under the GNU General Public License v3.0. If you include this repository, you will have to share your codes publicly.**
 * **In another local repositiory, add this module**
 ```sh
 git submodule add git@github.com:USYD-SDN-Lab/Toolbox.git Modules/Toolbox
