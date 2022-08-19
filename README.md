@@ -1,5 +1,7 @@
 # Toolbox
-Useful toolboxes for any project
+Useful toolboxes for any project<br>
+![GPLv3](https://www.gnu.org/graphics/gplv3-or-later-sm.png)<br>
+This project is under the GNU General Public License v3.0. If you include this repository, you will have to share your codes publicly.
 * **In another local repositiory, add this module**
 ```sh
 git submodule add git@github.com:USYD-Center-of-Telecom-and-IoT/Toolbox.git Modules/Toolbox
@@ -18,7 +20,8 @@ Now, you can see a folder `Modules` with `Toolbox` inside
 		from .Modules.Toolbox.[file name] import [class name]
 	```
 
-## DFT
+## Classes
+### DFT
 This class generates DFT(IDFT) matrices.
 * DFT(size) or DFT(size, extra_dims=)<br>
 `@size`: the size of DFT(IDFT) matrices. <br>
@@ -27,3 +30,8 @@ This class generates DFT(IDFT) matrices.
 generate the DFT matrix
 * gen_idft_mat()<br>
 generate the IDFT matrix
+
+### MatOps
+* transpose(dim1, dim2)<br>
+`@dim1`: the 1st dimension to transpose (starting from 1, the last dimension is -1)<br>
+`@dim2`: the 2nd dimension to transpose (starting from 1, the last dimension is -1)<br>
