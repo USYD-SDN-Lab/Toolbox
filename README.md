@@ -17,6 +17,10 @@ Now, you can see a folder `Modules` with `Toolbox` inside
 	else:
 		from .Modules.Toolbox.[file name] import [class name]
 	```
+	* C/C++
+	```
+	#include <filename>
+	```
 
 ## Classes
 ### DFT
@@ -33,3 +37,8 @@ generate the IDFT matrix
 * transpose(dim1, dim2)<br>
 `@dim1`: the 1st dimension to transpose (starting from 1, the last dimension is -1)<br>
 `@dim2`: the 2nd dimension to transpose (starting from 1, the last dimension is -1)<br>
+
+### FileManager
+* createPath(path)<br>
+create all folders along the path (the last part will be taken as a folder)
+`@path`: a path in a string of <string>
