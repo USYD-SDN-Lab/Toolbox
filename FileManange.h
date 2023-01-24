@@ -31,7 +31,7 @@ public:
      */
     int static createPath(const std::string& strOriginPath) {
         // duplicate the path into a temporary parameter
-        string path = strOriginPath;
+        std::string path = strOriginPath;
         // check whether the path has too many characters
         uint32_t pathLen = path.length();
         if (pathLen > MAX_PATH_LEN) {
