@@ -40,5 +40,5 @@ generate the IDFT matrix
 
 ### FileManager
 * createPath(path)<br>
-create all folders along the path (the last part will be taken as a folder)
+create all folders along the path (the last part will be taken as a folder)<br>
 `@path`: a path in a string of <string>
