@@ -169,6 +169,10 @@
                 this->file << data;
                 this->addCSVDataSeparator(isLast);
             }
+            void addCSVItem(const char * data, bool isLast = false) {
+                this->file << data;
+                this->addCSVDataSeparator(isLast);
+            }
             void addCSVItem(std::string data, bool isLast = false) {
                 this->file << data;
                 this->addCSVDataSeparator(isLast);
