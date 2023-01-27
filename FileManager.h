@@ -9,7 +9,7 @@
         #include <unistd.h>
         #include <sys/stat.h>
     #endif
-    #include <stdint.h>
+    #include <string.h>                 // support memset()
     #include <string>
     #include <fstream>
     // macros
