@@ -9,11 +9,9 @@
         #include <unistd.h>
         #include <sys/stat.h>
     #endif
-    #include <stdio.h>
     #include <stdint.h>
     #include <string>
     #include <fstream>
-#include <iostream>
     // macros
     #if defined WIN32 || defined _WIN32 || defined _WIN64
         #define ACCESS(fileName,accessMode) _access(fileName,accessMode)
