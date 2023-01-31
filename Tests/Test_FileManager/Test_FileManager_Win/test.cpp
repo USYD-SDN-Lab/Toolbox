@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
 	}
 	fm.AddCSVItem("fuck");
 	fm.AddCSVItem(27, true);
-	fm.close();
+	fm.Close();
 	cout << "     - write data & close pass!" << endl;
 	
 
