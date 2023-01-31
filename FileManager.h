@@ -181,6 +181,10 @@
                 this->file << data;
                 this->_AddCSVDataSeparator(isLast);
             }
+            void AddCSVItem(unsigned int data, bool isLast = false) {
+                this->file << data;
+                this->_AddCSVDataSeparator(isLast);
+            }
             void AddCSVItem(float data, bool isLast = false) {
                 this->file << data;
                 this->_AddCSVDataSeparator(isLast);
