@@ -24,7 +24,7 @@
     namespace Toolbox {
         class FileManager {
         private:
-            void addCSVDataSeparator(bool isLast) {
+            void _AddCSVDataSeparator(bool isLast) {
                 if (isLast) {
                     this->file << '\n';
                 }
@@ -34,7 +34,7 @@
             };
 
         protected:
-            const static size_t PATH_LEN_MAX;               // max path length
+            const size_t PATH_LEN_MAX = 2048;              // max path length
             std::fstream file;                             // the file object
         public:
             /**
@@ -48,16 +48,16 @@
              * @404:             one folder along this path cannot be created
              * @200:             all folders are created
              */
-            int static createPath(const char* chrOriginPath) {
+            int CreatePath(const char* chrOriginPath) {
                 if (!chrOriginPath) {
                     return 401;
                 }
                 else {
                     std::string strOriginPath = chrOriginPath;
-                    return FileManager::createPath(strOriginPath);
+                    return FileManager::CreatePath(strOriginPath);
                 }
             };
-            int static createPath(const std::string& strOriginPath) {
+            int CreatePath(const std::string& strOriginPath) {
                 // init variables
                 int ret = 200;                          // set the return value (the default is success)
                 char* ptrPathTmp = NULL;               // set the temporary path pointer to null                      
@@ -69,7 +69,7 @@
                 if (pathLen == 0) {
                     ret = 402;
                 }
-                else if (pathLen > FileManager::PATH_LEN_MAX) {
+                else if (pathLen > PATH_LEN_MAX) {
                     ret = 403;
                 }
                 else {
@@ -116,16 +116,16 @@
              * @404:                the file of the path cannot be open
              * @200:                the file is open
              */
-            int open(const char* path, bool isOverWritten = false) {
+            int Open(const char* path, bool isOverWritten = false) {
                 if (!path) {
                     return 401;
                 }
                 else {
                     std::string strPath = path;
-                    return this->open(strPath, isOverWritten);
+                    return this->Open(strPath, isOverWritten);
                 }
             };
-            int open(const std::string& path, bool isOverWritten = false) {
+            int Open(const std::string& path, bool isOverWritten = false) {
                 // init variables
                 int ret = 200;
 
@@ -161,33 +161,33 @@
              * @ptrData:    the pointer of data
              * @isLast:     whether this data is the last of this line
              */
-            void addCSVItem(char data, bool isLast = false) {
+            void AddCSVItem(char data, bool isLast = false) {
                 this->file << data;
-                this->addCSVDataSeparator(isLast);
+                this->_AddCSVDataSeparator(isLast);
             }
-            void addCSVItem(char * data, bool isLast = false) {
+            void AddCSVItem(char * data, bool isLast = false) {
                 this->file << data;
-                this->addCSVDataSeparator(isLast);
+                this->_AddCSVDataSeparator(isLast);
             }
-            void addCSVItem(const char * data, bool isLast = false) {
+            void AddCSVItem(const char * data, bool isLast = false) {
                 this->file << data;
-                this->addCSVDataSeparator(isLast);
+                this->_AddCSVDataSeparator(isLast);
             }
-            void addCSVItem(std::string data, bool isLast = false) {
+            void AddCSVItem(std::string data, bool isLast = false) {
                 this->file << data;
-                this->addCSVDataSeparator(isLast);
+                this->_AddCSVDataSeparator(isLast);
             }
-            void addCSVItem(int data, bool isLast = false) {
+            void AddCSVItem(int data, bool isLast = false) {
                 this->file << data;
-                this->addCSVDataSeparator(isLast);
+                this->_AddCSVDataSeparator(isLast);
             }
-            void addCSVItem(float data, bool isLast = false) {
+            void AddCSVItem(float data, bool isLast = false) {
                 this->file << data;
-                this->addCSVDataSeparator(isLast);
+                this->_AddCSVDataSeparator(isLast);
             }
-            void addCSVItem(double data, bool isLast = false) {
+            void AddCSVItem(double data, bool isLast = false) {
                 this->file << data;
-                this->addCSVDataSeparator(isLast);
+                this->_AddCSVDataSeparator(isLast);
             }
             /**
              * close
@@ -197,8 +197,5 @@
             };
 
         };
-        // initialise static members
-        // static members cannot be initialised inside a class but only outside
-        const size_t FileManager::PATH_LEN_MAX = 2048;
     }
 #endif
