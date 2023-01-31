@@ -192,7 +192,7 @@
             /**
              * close
              */
-            void close() {
+            void Close() {
                 this->file.close();
             };
 
