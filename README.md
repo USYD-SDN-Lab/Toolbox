@@ -21,6 +21,9 @@ Now, you can see a folder `Modules` with `Toolbox` inside
 	```
 	#include <filename>
 	```
+## Tests
+In `Tests`, all files are runnable.
+> `C/C++` files are supported by Visual Studio Code across platforms (using CMake)
 
 ## Classes
 ### DFT
