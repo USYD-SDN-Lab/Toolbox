@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __FILEMANAGER_H
-    #define __FILEMANAGER_H
+#ifndef __TOOLBOX_FILEMANAGER_H
+    #define __TOOLBOX_FILEMANAGER_H
     // headers
     #if defined WIN32 || defined _WIN32 || defined _WIN64
         #include <io.h>
