@@ -48,14 +48,14 @@
 					this->loc = new char[this->locLen];
 					memset(this->loc, 0, this->locLen);				// init all with '\0'
 					// copy
-					if (filePathPrefixLen) { strncat_s(this->loc, this->locLen, filePathPrefix, __TOOLBOX_ERR_STR_MAX_LEN); }		// copy - filePathPrefix
-					if (needPathSeparator) { strncat_s(this->loc, this->locLen, "/", 2); }											// copy - '/'
-					if (filenameLen) { strncat_s(this->loc, this->locLen, filename, __TOOLBOX_ERR_STR_MAX_LEN); }					// copy - filename
-					if (needSpace) { strncat_s(this->loc, this->locLen, " ", __TOOLBOX_ERR_STR_MAX_LEN); }							// copy - ' '
-					if (classnameLen) { strncat_s(this->loc, this->locLen, classname, __TOOLBOX_ERR_STR_MAX_LEN); }					// copy - classname
-					if (needClassMethodSeparator) { strncat_s(this->loc, this->locLen, "::", 3); }									// copy - "::"
-					if (methodnameLen) { strncat_s(this->loc, this->locLen, methodname, __TOOLBOX_ERR_STR_MAX_LEN); }				// copy - methodname
-					if (needMethodParentheses) { strncat_s(this->loc, this->locLen, "()", 3); }										// copy - "()"
+					if (filePathPrefixLen) { strncat(this->loc, filePathPrefix, __TOOLBOX_ERR_STR_MAX_LEN); }		// copy - filePathPrefix
+					if (needPathSeparator) { strncat(this->loc, "/", 2); }											// copy - '/'
+					if (filenameLen) { strncat(this->loc, filename, __TOOLBOX_ERR_STR_MAX_LEN); }					// copy - filename
+					if (needSpace) { strncat(this->loc, " ", __TOOLBOX_ERR_STR_MAX_LEN); }							// copy - ' '
+					if (classnameLen) { strncat(this->loc, classname, __TOOLBOX_ERR_STR_MAX_LEN); }					// copy - classname
+					if (needClassMethodSeparator) { strncat(this->loc, "::", 3); }									// copy - "::"
+					if (methodnameLen) { strncat(this->loc, methodname, __TOOLBOX_ERR_STR_MAX_LEN); }				// copy - methodname
+					if (needMethodParentheses) { strncat(this->loc, "()", 3); }										// copy - "()"
 				}
 				catch (const std::bad_alloc& e) {
 					this->Clear();
@@ -71,7 +71,7 @@
 						try {
 							this->msg = new char[this->msgLen];
 							memset(this->msg, 0, this->msgLen);
-							strcpy_s(this->msg, this->msgLen-1, msg);		// copy - the last one is set to '\0'
+							strncpy(this->msg, msg, this->msgLen-1);		// copy - the last one is set to '\0'
 						}
 						catch (std::bad_alloc) {
 							this->Clear();

@@ -34,5 +34,10 @@ int main()
 	Error err6("/src/", "Test_Error.cpp", "Main", "main(");
 	err6.SetType2MemoryShortage();
 	err6.Summary();
+
+	cout << "\nError 7" << endl;
+	Error err7("/src/", "Test_Error.cpp", "Main", "main(", "fuck");
+	err7.SetType2MemoryShortage();
+	err7.Summary();
 	return 0;
 }
