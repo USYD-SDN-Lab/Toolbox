@@ -9,7 +9,7 @@ using namespace Toolbox;
 int main()
 {
 	cout << "Error 1" << endl;
-	Error err1(__TOOLBOX_ERR_INTERNAL);
+	Error err1(TOOLBOX_ERR_INTERNAL);
 	err1.Summary();
 	cout << "\nError 2" << endl;
 	Error err2(NULL, "Test_Error.cpp", "main");
@@ -26,9 +26,6 @@ int main()
 	cout << "\nError 4" << endl;
 	Error err4("/src", "Test_Error.cpp", "Main", "main");
 	err4.Summary();
-	cout << "\nError 5" << endl;
-	Error err5("/src/", "Test_Error.cpp", "Main", "main");
-	err5.Summary();
 
 	cout << "\nError 6" << endl;
 	Error err6("/src/", "Test_Error.cpp", "Main", "main(");
@@ -36,7 +33,7 @@ int main()
 	err6.Summary();
 
 	cout << "\nError 7" << endl;
-	Error err7("/src/", "Test_Error.cpp", "Main", "main(", "fuck");
+	Error err7("/src/", "Test_Error.cpp", "Main", "main(", "message");
 	err7.SetType2MemoryShortage();
 	err7.Summary();
 	return 0;

@@ -7,8 +7,8 @@ project ("ToolboxTestError")
 project ("ToolboxTestFilerManager")
 
 # Add source to this project's executable.
-add_executable (ToolboxTestError "Tests/Test_Error/Test_Error.cpp")
-add_executable (ToolboxTestFilerManager "Tests/Test_FileManager/Test_FileManager.cpp")
+add_executable (ToolboxTestError "Samples/Test_Error/Test_Error.cpp")
+add_executable (ToolboxTestFilerManager "Samples/Test_FileManager/Test_FileManager.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET ToolboxTestError PROPERTY CXX_STANDARD 20)
