@@ -1,28 +1,34 @@
 # Toolbox ![GPLv3](https://www.gnu.org/graphics/gplv3-or-later-sm.png)
 Useful toolboxes for any project. **This project is under the GNU General Public License v3.0. If you include this repository, you will have to share your codes publicly.**
 * **In another local repositiory, add this module**
-```sh
-git submodule add git@github.com:USYD-SDN-Lab/Toolbox.git Modules/Toolbox
-```
+	General
+	```sh
+	git submodule add git@github.com:USYD-SDN-Lab/Toolbox.git Modules/Toolbox
+	```
+	For Matlbab, we need to append '+' in front of the folder to indicate the package namespace
+	```sh
+	git submodule add git@github.com:USYD-SDN-Lab/Toolbox.git Modules/+Toolbox
+	```
 Now, you can see a folder `Modules` with `Toolbox` inside
 * **import this module**
 	* Matlab
-	```
-	addpath("Modules/Toolbox");
+	```matlab
+	addpath("Modules");						% add the path
 	```
 	* Python
-	```
+	```python
 	if '.' not in __name__ :
 		from Modules.Toolbox.[file name]  import [class name]
 	else:
 		from .Modules.Toolbox.[file name] import [class name]
 	```
 	* C/C++
-	```
+	```c++
 	#include <filename>
+	using namespace Toolbox;
 	```
 ## Tests
-In `Tests`, all files are runnable.
+In `Samples`, all files are runnable.
 > `C/C++` files are supported by Visual Studio Code across platforms (using CMake)
 
 ## Classes
