@@ -247,6 +247,9 @@
             void AddTextLine(std::string & text) {
                 this->file << text << '\n';
             }
+            void AddTextLine() {
+                this->file << '\n';
+            }
         };
     }
 #endif
