@@ -14,11 +14,11 @@ int main(int argc, char* argv[]) {
 	cout << "Test - create path" << endl;
 	string strPath = "./_build/str";
 	const char * chrPath = "./_build/chr/";
-	ret = fm.CreatePath(strPath);
+	ret = FileManager::CreatePath(strPath);
 	if (ret == 200) {
 		cout << "     - string path pass!" << endl;
 	}
-	ret = fm.CreatePath(chrPath);
+	ret = FileManager::CreatePath(chrPath);
 	if (ret == 200) {
 		cout << "     - char path pass!" << endl;
 	}
@@ -38,6 +38,19 @@ int main(int argc, char* argv[]) {
 	fm.Close();
 	cout << "     - write data & close pass!" << endl;
 	
+	// test folder
+	cout << "Test - check file or folders" << endl;
+	ret = FileManager::IsFolderOrFileExist("./_build");
+	if (ret) {
+		cout << "     - folder check pass!" << endl;
+	}
+	ret = fm.Open("./_build/test.txt");
+	if (ret == 200) {
+		cout << "     - file created!" << endl;
+	}
+	fm.AddTextLine("test");
+	fm.Close();
+
 
 	// pause to let users see outcomes
 	//system("pause");

@@ -20,6 +20,8 @@
         #define ACCESS(fileName,accessMode) access(fileName,accessMode)
         #define MKDIR(path) mkdir(path,S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH)
     #endif
+    // constants
+    #define __TOOLBOX_FILEMANAGER_PATH_LEN_MAX 2048
     
     namespace Toolbox {
         class FileManager {
@@ -34,9 +36,45 @@
             };
 
         protected:
-            const size_t PATH_LEN_MAX = 2048;              // max path length
             std::fstream file;                             // the file object
         public:
+            /**
+             * check whether a file exist or not
+             * <INPUT> (v1)
+             * @pathPrefix:     the path of the prefix
+             * @fileName:       the file name
+             * <INPUT> (v2)
+             * @filePath:       the file paht
+             */
+            static bool IsFolderOrFileExist(const char * pathPrefix, const char * fileName) {
+                if (!pathPrefix || !fileName) {
+                    return false;
+                }
+                else {
+                    std::string strPathPrefix = pathPrefix;
+                    std::string strFileName = fileName;
+                    return IsFolderOrFileExist(strPathPrefix, strFileName);
+                }
+            }
+            static bool IsFolderOrFileExist(std::string & pathPrefix, std::string & fileName) {
+                if (pathPrefix.back() != '\\' && pathPrefix.back() != '/') {
+                    pathPrefix.append("/");
+                }
+                std::string filePath = pathPrefix + fileName;
+                return IsFolderOrFileExist(filePath);
+            }
+            static bool IsFolderOrFileExist(std::string & filepath) {
+                return IsFolderOrFileExist(filepath.c_str());
+            }
+            static bool IsFolderOrFileExist(const char * filepath) {
+                if (!filepath) {
+                    return false;
+                }
+                else {
+                    return ACCESS(filepath, 0) == 0;
+                }
+            }
+
             /**
              * create all folders along the path (the last part will be taken as a folder)
              * <INPUT>
@@ -48,7 +86,7 @@
              * @404:             one folder along this path cannot be created
              * @200:             all folders are created
              */
-            int CreatePath(const char* chrOriginPath) {
+            static int CreatePath(const char* chrOriginPath) {
                 if (!chrOriginPath) {
                     return 401;
                 }
@@ -57,7 +95,7 @@
                     return FileManager::CreatePath(strOriginPath);
                 }
             };
-            int CreatePath(const std::string& strOriginPath) {
+            static int CreatePath(const std::string& strOriginPath) {
                 // init variables
                 int ret = 200;                          // set the return value (the default is success)
                 char* ptrPathTmp = NULL;               // set the temporary path pointer to null                      
@@ -69,7 +107,7 @@
                 if (pathLen == 0) {
                     ret = 402;
                 }
-                else if (pathLen > PATH_LEN_MAX) {
+                else if (pathLen > __TOOLBOX_FILEMANAGER_PATH_LEN_MAX) {
                     ret = 403;
                 }
                 else {
@@ -133,7 +171,7 @@
                 if (path.length() == 0) {
                     ret = 402;
                 }
-                else if (path.length() > FileManager::PATH_LEN_MAX) {
+                else if (path.length() > __TOOLBOX_FILEMANAGER_PATH_LEN_MAX) {
                     ret = 403;
                 }
                 else {
@@ -154,6 +192,12 @@
                 }
                 // return
                 return ret;
+            };
+            /**
+             * close
+             */
+            void Close() {
+                this->file.close();
             };
 
             /**
@@ -193,13 +237,16 @@
                 this->file << data;
                 this->_AddCSVDataSeparator(isLast);
             }
-            /**
-             * close
-             */
-            void Close() {
-                this->file.close();
-            };
 
+            /**
+             * add a line of text
+             */
+            void AddTextLine(const char * text) {
+                this->file << text << '\n';
+            }
+            void AddTextLine(std::string & text) {
+                this->file << text << '\n';
+            }
         };
     }
 #endif
